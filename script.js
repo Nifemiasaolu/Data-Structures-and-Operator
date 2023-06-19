@@ -5,6 +5,21 @@
 // '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+const hours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 const restaurant = {
   names: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -15,20 +30,9 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  
+  // ES6 Enhanced Object Literals
+  hours,
 
   orderDelivery: function ({
     starterIndex = 3,
@@ -63,11 +67,25 @@ const rest2 = {
 
 };
 
+////////////////////////////////////////////////
+//==================== LOOPING ARRAYS: THE FOR-OF LOOP ====================
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for(const item of menu) console.log(item);
+
+for(const [i, el] of menu.entries()) {
+  // console.log(`${i}: ${el}`);
+}
+
+
+//////////////////////////////////////////////////////
+// ============ LOGICAL ASSIGNMENT OPERATOR ==============
+
 // OR Assignment Operator
 // rest1.numGuests = rest1.numGuests || 10;
 // rest2.numGuests = rest2.numGuests || 10;
-// rest1.numGuests ||= 10;
-// rest2.numGuests ||= 15;
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 15;
 
 // Nullish Operator (NULL AND UNDEFINED)
 rest1.numGuests ??= 10;
@@ -84,7 +102,7 @@ rest2.owner &&= '<ANONYMOUS>'
 // console.log(rest2);
 
 /////////////////////////////////////////
-// THE NULLISH COALESCING OPERATOR (??)
+//========== THE NULLISH COALESCING OPERATOR (??) ==========
 
 // restaurant.numGuests = 0;
 // const guest = restaurant.numGuests || 15;
@@ -95,7 +113,7 @@ rest2.owner &&= '<ANONYMOUS>'
 // console.log(guestCorrect);// 0
 
 /////////////////////////////////////////
-// SHORT CIRCUITING (&& AND ||)
+//================== SHORT CIRCUITING (&& AND ||) ==================
 
 // OR Operators will return the first truthy value of the operands, or the last falsy value if all of them are false.
 // AND operators will return the first falsy value of the operands, or the last truthy value if all if them are true.
@@ -140,8 +158,9 @@ rest2.owner &&= '<ANONYMOUS>'
 
 // IN SUMMARY, SPREAD OPERATORS ARE USED IN VALUES SEPERATED BY COMMAS, WHILE
 // REST OPERATORS ARE USED IN VARIABLE NAMES SEPERATED BY COMMAS
-////////////////////////////////////
-// REST Patterns and Parameter
+
+/////////////////////////////////////////////
+//======================= REST Patterns and Parameter =======================
 
 // 1) Destructuring
 // SPREAD because of right side of =
@@ -177,8 +196,9 @@ rest2.owner &&= '<ANONYMOUS>'
 
 // restaurant.orderPizza('mushrooms', 'cheese', 'onions', 'garlic', 'vegetable');
 
-////////////////////////////////////
-// Spread Operator
+///////////////////////////////////////////////
+//==================== Spread Operator ====================
+
 // const arr = [7, 8, 9];
 
 // const newArr = [1, 2, ...arr];
@@ -211,7 +231,8 @@ rest2.owner &&= '<ANONYMOUS>'
 // console.log(...ingredients);
 // restaurant.orderPasta(...ingredients);
 
-// Objects
+//==================== Objects ===================
+
 // const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Dominico Rodiguez'};
 // console.log(newRestaurant);
 
@@ -236,8 +257,8 @@ rest2.owner &&= '<ANONYMOUS>'
 
 // })
 
-////////////////////////////////
-// Object Destructuring
+//////////////////////////////////////////////
+//====================== Object Destructuring ======================
 
 // const { names, openingHours, categories } = restaurant;
 // console.log(names, openingHours, categories);
@@ -267,8 +288,9 @@ rest2.owner &&= '<ANONYMOUS>'
 // } = openingHours;
 // console.log(o, c);
 
-////////////////////////////////////
-//Destructuring Arrays
+/////////////////////////////////////////////
+//======================= Destructuring Arrays =======================
+
 // const arr = [2, 3, 4];
 // const a = arr[0];
 // const b = arr[1];
