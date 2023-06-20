@@ -5,7 +5,10 @@
 // '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-const hours = {
+
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+
+const openingHours = {
   thu: {
     open: 12,
     close: 22,
@@ -32,7 +35,7 @@ const restaurant = {
   },
   
   // ES6 Enhanced Object Literals
-  hours,
+  openingHours,
 
   orderDelivery: function ({
     starterIndex = 3,
@@ -57,13 +60,39 @@ const restaurant = {
 //////////////////////////////////////////////////
 //================= OPTIONAL CHAINING(?.) =================
 
+if(restaurant.openingHours && restaurant.openingHours.mon)   console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon?.open);
+
+//============ WITH OPTIONAL CHAINING ============
+
+console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours.fri?.open);
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+
+for(const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//======== Optional Chaining on Methods ========
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
+
+// ======== Arrays ============
+ const users = [{name: 'Jonas', email: 'hello@jonas.io'}];
+ console.log(users[0]?.name ?? 'User array empty');
 
 
+ 
 ////////////////////////////////////////////////
 //==================== LOOPING ARRAYS: THE FOR-OF LOOP ====================
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-for(const item of menu) console.log(item);
+// for(const item of menu) console.log(item);
 
 for(const [i, el] of menu.entries()) {
   // console.log(`${i}: ${el}`);
