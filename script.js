@@ -30,7 +30,7 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
   
@@ -57,16 +57,49 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////
+//=====================  LOOPING OBJECTS (KEYS, VALUES AND ENTRIES)=====================
+
+//====== Looping Over Propertiy Names (Object Keys) =============
+
+const properties = Object.keys(openingHours)
+// console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for(const day of properties) {
+  openStr += `${day} `;
+}
+// console.log(openStr);
+
+
+//============ Looping Over Property values (Object Values) =============
+
+const values = Object.values(openingHours);
+// console.log(values);
+// Looping over keys works the same way as the object 
+
+//======= Looping Over Property Names and Values (keys and values using Object Entries) =======
+// In arrays, when using Object Entries, you dont pass in the parameter.Entries
+// In Object, you pass in the parameter. 
+
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+for(const [key, {open, close}] of entries) {
+  // console.log(`On ${key}, we open at ${open} and close at ${close}`);
+}
+
+
 //////////////////////////////////////////////////
 //================= OPTIONAL CHAINING(?.) =================
 
-if(restaurant.openingHours && restaurant.openingHours.mon)   console.log(restaurant.openingHours.mon.open);
+if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
 // console.log(restaurant.openingHours.mon?.open);
 
 //============ WITH OPTIONAL CHAINING ============
 
-console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours.mon?.open);
 // console.log(restaurant.openingHours.fri?.open);
 
 // Example
@@ -75,19 +108,19 @@ const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 for(const day of days) {
   // console.log(day);
   const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`On ${day}, we open at ${open}`);
+  // console.log(`On ${day}, we open at ${open}`);
 }
 
 //======== Optional Chaining on Methods ========
-console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
-console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
+// console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
 
 // ======== Arrays ============
  const users = [{name: 'Jonas', email: 'hello@jonas.io'}];
- console.log(users[0]?.name ?? 'User array empty');
+//  console.log(users[0]?.name ?? 'User array empty');
 
 
- 
+
 ////////////////////////////////////////////////
 //==================== LOOPING ARRAYS: THE FOR-OF LOOP ====================
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
