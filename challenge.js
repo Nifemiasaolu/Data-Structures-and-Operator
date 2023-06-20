@@ -77,7 +77,7 @@ const game = {
 // printGoals('Davies', 'Muller');
 // printGoals(...game.scored);
 
-// 7.
+// 7)
 // teamBayern < teamDortsmund && console.log('Team 1 is more likely to win');
 // teamBayern > teamDortsmund && console.log('Team 2 is more likely to win');
 
