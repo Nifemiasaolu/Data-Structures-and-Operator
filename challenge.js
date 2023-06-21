@@ -86,7 +86,7 @@ const game = {
 
 // 1.
 const gameScored = game.scored.entries(); //Array Entry
-console.log(gameScored);
+// console.log(gameScored);
 for (const [i, player] of gameScored) {
   // console.log(`Goal ${i + 1}: ${player}`);
 }
