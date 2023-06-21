@@ -59,7 +59,73 @@ const restaurant = {
 
 ///////////////////////////////////////////////////
 // ================ MAPS =====================
+const rest = new Map();
 
+rest.set(1, 'John Boyega');
+console.log(rest.set(2, 'Lucas Henderson'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+// console.log(rest.get(true));
+
+const time = 2;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// Different Map Methods
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'heading');
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+
+//========== MAP ITERATION =========
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again'],
+]);
+console.log(question);
+
+// ====== Convert Object to Map ======
+
+console.log(Object.entries(openingHours));
+const hourMap = new Map(Object.entries(openingHours));
+console.log(hourMap);
+
+// Quiz App
+console.log(question.get('question'));
+// Iteration of Map
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer));
+
+
+//======= Convert map to array =======
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
 
 
 ///////////////////////////////////////////////////
@@ -82,13 +148,13 @@ const restaurant = {
 // orderSet.add('Garlic bread');
 // orderSet.add('Garlic bread');
 // orderSet.delete('delete');
-// orderSet.clear(); // Delete all the set elements 
+// orderSet.clear(); // Delete all the set elements
 
 // console.log(orderSet);
 
 // for(const order of orderSet) console.log(order);
 
-// Example 
+// Example
 // const staff = ['Waiter', 'Chef', 'Manager', 'Sous Chef', 'Waiter', 'Manager'];
 
 // const staffUnique = [...new Set(staff)];
@@ -125,7 +191,7 @@ const restaurant = {
 // console.log(entries);
 
 // for (const [key, { open, close }] of entries) {
-  // console.log(`On ${key}, we open at ${open} and close at ${close}`);
+// console.log(`On ${key}, we open at ${open} and close at ${close}`);
 // }
 
 //////////////////////////////////////////////////
@@ -145,9 +211,9 @@ const restaurant = {
 // const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 // for (const day of days) {
-  // console.log(day);
-  // const open = restaurant.openingHours[day]?.open ?? 'closed';
-  // console.log(`On ${day}, we open at ${open}`);
+// console.log(day);
+// const open = restaurant.openingHours[day]?.open ?? 'closed';
+// console.log(`On ${day}, we open at ${open}`);
 // }
 
 //======== Optional Chaining on Methods ========
@@ -165,7 +231,7 @@ const restaurant = {
 // for(const item of menu) console.log(item);
 
 // for (const [i, el] of menu.entries()) {
-  // console.log(`${i}: ${el}`);
+// console.log(`${i}: ${el}`);
 // }
 
 //////////////////////////////////////////////////////
