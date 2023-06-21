@@ -62,7 +62,7 @@ const restaurant = {
 const rest = new Map();
 
 rest.set(1, 'John Boyega');
-console.log(rest.set(2, 'Lucas Henderson'));
+// console.log(rest.set(2, 'Lucas Henderson'));
 
 rest
   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
@@ -74,20 +74,22 @@ rest
 // console.log(rest.get(true));
 
 const time = 2;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
 // Different Map Methods
-console.log(rest.has('categories'));
+// console.log(rest.has('categories'));
 rest.delete(2);
-console.log(rest);
+// console.log(rest);
 
+// Pushing an array into a map 
 const arr = [1, 2];
 rest.set(arr, 'Test');
-rest.set(document.querySelector('h1'), 'heading');
-console.log(rest);
-console.log(rest.size);
 
-console.log(rest.get(arr));
+rest.set(document.querySelector('h1'), 'heading');
+// console.log(rest);
+// console.log(rest.size);
+
+// console.log(rest.get(arr));
 
 //========== MAP ITERATION =========
 
@@ -100,32 +102,45 @@ const question = new Map([
   [true, 'Correct 🎉'],
   [false, 'Try again'],
 ]);
-console.log(question);
+// console.log(question);
 
 // ====== Convert Object to Map ======
 
-console.log(Object.entries(openingHours));
+// console.log(Object.entries(openingHours));
 const hourMap = new Map(Object.entries(openingHours));
-console.log(hourMap);
+// console.log(hourMap);
 
 // Quiz App
-console.log(question.get('question'));
+// console.log(question.get('question'));
 // Iteration of Map
 for (const [key, value] of question) {
-  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+  // if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
 }
 
 // const answer = Number(prompt('Your answer'));
 const answer = 3;
-console.log(answer);
+// console.log(answer);
 
-console.log(question.get(question.get('correct') === answer));
+// console.log(question.get(question.get('correct') === answer));
 
 
 //======= Convert map to array =======
-console.log([...question]);
-console.log([...question.keys()]);
-console.log([...question.values()]);
+// console.log([...question]); //Automatically means 'question.entries()
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
+
+// Convert array to Set 
+// const newSets = [...new Set(question)]
+
+// Convert Object to Map 
+//  const hourMap1 = new Map(Object.entries(openingHours));
+
+// Convert array to map 
+//  const newMap = new Map(...variable.entries());
+
+//  Convert array to Object 
+//  Convert Set to array 
+//  Convert Map to object 
 
 
 ///////////////////////////////////////////////////
