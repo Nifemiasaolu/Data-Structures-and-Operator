@@ -81,30 +81,29 @@ const game = {
 // teamBayern < teamDortsmund && console.log('Team 1 is more likely to win');
 // teamBayern > teamDortsmund && console.log('Team 2 is more likely to win');
 
+///////////////////////
 // Code Challenge #2
 
-const gameScored = Object.entries(game.scored);
+// 1.
+const gameScored = game.scored.entries(); //Array Entry
 console.log(gameScored);
-
 for (const [i, player] of gameScored) {
-  console.log(`Goal ${i}: ${player}`);
+  // console.log(`Goal ${i + 1}: ${player}`);
 }
 
-///////////
-const avgOdds = Object.values(game.odds);
-console.log(avgOdds);
+// 2.
+let average = 0;
 
-// const average = (a, b, c) => {
-//   return avgOdds / 3;
-// };
-// console.log(average(avgOdds));
+const odds = Object.values(game.odds);
+for (const odd of odds) 
+average += odd;
+average /= odds.length;
+// console.log(average);
 
+// 3.
+const gameOdds = Object.entries(game.odds);  //Object Entry
 
-// for (const avg of avgOdds) {
-  // console.log(`${avg} / 3`);
-// }
-/////////////
-
-for(const [key, value] of avgOdds) {
-  console.log(`Odd of victory ${key}: ${value}`);
+for(const [team, odd] of gameOdds) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`
+  // console.log(`Odd of ${teamStr}:  ${odd}`);
 }
