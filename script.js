@@ -6,7 +6,7 @@
 
 // Data needed for first part of the sections
 
-const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
   thu: {
@@ -33,7 +33,7 @@ const restaurant = {
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  
+
   // ES6 Enhanced Object Literals
   openingHours,
 
@@ -57,43 +57,82 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////////////////////
+// ================ MAPS =====================
+
+
+
+///////////////////////////////////////////////////
+//=================== SETS ===================
+// Sets is a collection of unique values
+
+// const orderSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+// console.log(orderSet); // {'Pasta', 'Pizza', 'Risotto'}
+// console.log(new Set('Jonas')); //'J','o','n','a','s'
+// console.log(orderSet.size); //3
+// console.log(orderSet.has('Pizza')); //true
+// console.log(orderSet.has('bread')); //false
+// orderSet.add('Garlic bread');
+// orderSet.add('Garlic bread');
+// orderSet.delete('delete');
+// orderSet.clear(); // Delete all the set elements 
+
+// console.log(orderSet);
+
+// for(const order of orderSet) console.log(order);
+
+// Example 
+// const staff = ['Waiter', 'Chef', 'Manager', 'Sous Chef', 'Waiter', 'Manager'];
+
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+
+// console.log(new Set( ['Waiter', 'Chef', 'Manager', 'Sous Chef', 'Waiter', 'Manager']).size);
+// console.log(new Set('JonasSchmedtmann').size);
+
 ///////////////////////////////////
 //=====================  LOOPING OBJECTS (KEYS, VALUES AND ENTRIES)=====================
 
 //====== Looping Over Propertiy Names (Object Keys) =============
 
-const properties = Object.keys(openingHours)
+// const properties = Object.keys(openingHours);
 // console.log(properties);
 
-let openStr = `We are open on ${properties.length} days: `;
-for(const day of properties) {
-  openStr += `${day} `;
-}
+// let openStr = `We are open on ${properties.length} days: `;
+// for (const day of properties) {
+//   openStr += `${day} `;
+// }
 // console.log(openStr);
-
 
 //============ Looping Over Property values (Object Values) =============
 
-const values = Object.values(openingHours);
+// const values = Object.values(openingHours);
 // console.log(values);
-// Looping over keys works the same way as the object 
+// Looping over keys works the same way as the object
 
 //======= Looping Over Property Names and Values (keys and values using Object Entries) =======
 // In arrays, when using Object Entries, you dont pass in the parameter.Entries
-// In Object, you pass in the parameter. 
+// In Object, you pass in the parameter.
 
-const entries = Object.entries(openingHours);
+// const entries = Object.entries(openingHours);
 // console.log(entries);
 
-for(const [key, {open, close}] of entries) {
+// for (const [key, { open, close }] of entries) {
   // console.log(`On ${key}, we open at ${open} and close at ${close}`);
-}
-
+// }
 
 //////////////////////////////////////////////////
 //================= OPTIONAL CHAINING(?.) =================
 
-if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
 
 // console.log(restaurant.openingHours.mon?.open);
 
@@ -103,49 +142,43 @@ if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restauran
 // console.log(restaurant.openingHours.fri?.open);
 
 // Example
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-for(const day of days) {
+// for (const day of days) {
   // console.log(day);
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  // const open = restaurant.openingHours[day]?.open ?? 'closed';
   // console.log(`On ${day}, we open at ${open}`);
-}
+// }
 
 //======== Optional Chaining on Methods ========
 // console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
 // console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
 
 // ======== Arrays ============
- const users = [{name: 'Jonas', email: 'hello@jonas.io'}];
+// const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
 //  console.log(users[0]?.name ?? 'User array empty');
-
-
 
 ////////////////////////////////////////////////
 //==================== LOOPING ARRAYS: THE FOR-OF LOOP ====================
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 // for(const item of menu) console.log(item);
 
-for(const [i, el] of menu.entries()) {
+// for (const [i, el] of menu.entries()) {
   // console.log(`${i}: ${el}`);
-}
-
+// }
 
 //////////////////////////////////////////////////////
 //============== LOGICAL ASSIGNMENT OPERATOR ==============
-const rest1 = {
-  name: 'Capri',
-  numGuests: 0
-};
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 0,
+// };
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-
-};
-
-
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
 //////////////////////////////////////////////////////
 // ============ LOGICAL ASSIGNMENT OPERATOR ==============
@@ -153,19 +186,19 @@ const rest2 = {
 // OR Assignment Operator
 // rest1.numGuests = rest1.numGuests || 10;
 // rest2.numGuests = rest2.numGuests || 10;
-rest1.numGuests ||= 10;
-rest2.numGuests ||= 15;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 15;
 
 // Nullish Operator (NULL AND UNDEFINED)
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 15;
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 15;
 
-// AND Aassignment Operator 
+// AND Aassignment Operator
 // rest1.owner = rest1.owner && '<ANONYMOUS>';
 // rest2.owner = rest2.owner && '<ANONYMOUS>';
 
-rest1.owner &&= '<ANONYMOUS>'
-rest2.owner &&= '<ANONYMOUS>'
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
 
 // console.log(rest1);
 // console.log(rest2);
