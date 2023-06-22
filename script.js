@@ -57,49 +57,116 @@ const restaurant = {
   },
 };
 
-//////////////////////////////////////////////////
-//=================== WORKING WITH STRINGS ===============
-
+//////////////////////////////////////////////////////
+//=================== WORKING WITH STRINGS = Part 2 ===============
 const airline = 'TAP Air Portugal';
-const plane = 'A320';
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
 
-console.log(plane[0]);
-console.log(plane[1]);
+// Fix Capitalisation in Name 
 
-console.log(airline.length);
-console.log('A320'.length);
+const passenger = 'jOnAs' // Jonas
+const passengerLower = passenger.toLowerCase();
+// console.log(passengerLower);
+
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing email 
+
+const email = 'hello@gmail.io';
+const loginEmail = ' HeLLo@gmail.IO \n';
+
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+console.log(email === normalizedEmail);
+
+// Replacing
+const priceGB = '288,97&'
+const priceUS = priceGB.replace('&', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23'
+
+// console.log(announcement.replace('door', 'gate'));
+
+console.log(announcement.replace(/door/g, 'gate')); //Using Regualar Expression to replace all at once
+
+// Booleans
+
+const plane = 'Airbus A320';
+console.log(plane.includes('A320'));
+console.log(plane.includes('B737'));
+console.log(plane.startsWith('Air'));
+
+if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log(`Part of the new Airbus Family`);
+}
+
+// Practice Exercise
+const checkBaggage = function(item) {
+  const baggage = item.toLowerCase();
+
+  if(baggage.includes('knife') || baggage.includes('gun')) {
+    console.log(`You are NOT allowed on board`);
+  } else {
+    console.log(`Welcome aboard!`);
+  }
+}
+
+checkBaggage(`I have a laptop, some Food and a pocket Knife`);
+checkBaggage(`Socks and camera`);
+checkBaggage('Got some snacks and a gun for protection');
+
+
+//////////////////////////////////////////////////
+//=================== WORKING WITH STRINGS = Part 1 ===============
+
+// const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+
+// console.log(airline.length);
+// console.log('A320'.length);
 
 // Methods 
 
-console.log(airline.indexOf('r'));
-console.log(airline.indexOf('i'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.lastIndexOf('Portugal'));
+// console.log(airline.indexOf('r'));
+// console.log(airline.indexOf('i'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.lastIndexOf('Portugal'));
 
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
 
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(airline.lastIndexOf(' ')+1));
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ')+1));
 
-console.log(airline.slice(-2));
-console.log(airline.slice(2,-3));
+// console.log(airline.slice(-2));
+// console.log(airline.slice(2,-3));
 
 // Example 
-const checkMiddleSeat = function(seat) {
+// const checkMiddleSeat = function(seat) {
   //B and E are the middle seat
 
-  const s = seat.slice(-1);
+  // const s = seat.slice(-1);
 
-  if (s === "B" || s === "E") console.log('You got the middle seat');
-  else console.log('You got Lucky!');
-}
+//   if (s === "B" || s === "E") console.log('You got the middle seat');
+//   else console.log('You got Lucky!');
+// }
 
-checkMiddleSeat('24E');
-checkMiddleSeat('24645r');
-checkMiddleSeat('244re');
-checkMiddleSeat('7565B');
-checkMiddleSeat('582E');
+// checkMiddleSeat('24E');
+// checkMiddleSeat('24645r');
+// checkMiddleSeat('244re');
+// checkMiddleSeat('7565B');
+// checkMiddleSeat('582E');
 
 
 ///////////////////////////////////////////////////
