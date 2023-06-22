@@ -125,11 +125,12 @@ const gameEvents = new Map([
   ]);
 
   const events = [...new Set(gameEvents.values())];
-  console.log(events);
+  // console.log(events);
 
   gameEvents.delete(64);
-  console.log(gameEvents);
+  // console.log(gameEvents);
 
-for(const game of Object.entries(gameEvents)) {
-  console.log();
+for(const [i, value] of gameEvents) {
+  const half = (i <= 45) ? `FIRST` : `SECOND`
+//  console.log(`[${half} HALF] ${i}: ${value}`);
 }
