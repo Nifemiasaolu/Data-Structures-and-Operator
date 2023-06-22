@@ -102,7 +102,7 @@ console.log(announcement.replace(/door/g, 'gate')); //Using Regualar Expression 
 
 const plane = 'Airbus A320';
 console.log(plane.includes('A320'));
-console.log(plane.includes('B737'));
+// console.log(plane.includes('B737'));
 // console.log(plane.startsWith('Air'));
 
 if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
