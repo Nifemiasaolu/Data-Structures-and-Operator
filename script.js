@@ -57,6 +57,51 @@ const restaurant = {
   },
 };
 
+//////////////////////////////////////////////////
+//=================== WORKING WITH STRINGS ===============
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+
+console.log(airline.length);
+console.log('A320'.length);
+
+// Methods 
+
+console.log(airline.indexOf('r'));
+console.log(airline.indexOf('i'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.lastIndexOf('Portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ')+1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(2,-3));
+
+// Example 
+const checkMiddleSeat = function(seat) {
+  //B and E are the middle seat
+
+  const s = seat.slice(-1);
+
+  if (s === "B" || s === "E") console.log('You got the middle seat');
+  else console.log('You got Lucky!');
+}
+
+checkMiddleSeat('24E');
+checkMiddleSeat('24645r');
+checkMiddleSeat('244re');
+checkMiddleSeat('7565B');
+checkMiddleSeat('582E');
+
+
 ///////////////////////////////////////////////////
 // ================ MAPS =====================
 const rest = new Map();
