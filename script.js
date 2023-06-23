@@ -73,7 +73,7 @@ const [firstName, lastName] = 'Jonas Schmedtmann'.split(' '); //Jonas Schmedtman
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName);
 
-// Exercise 
+// Exercise/ 
 
 
 //////////////////////////////////////////////////////
