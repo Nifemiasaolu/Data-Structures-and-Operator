@@ -73,9 +73,52 @@ const [firstName, lastName] = 'Jonas Schmedtmann'.split(' '); //Jonas Schmedtman
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName);
 
-// Exercise/ 
+// Exercise
+const capitalName = function(name) {
+  const names = name.split(' ')
+  // console.log(names);
+  const newNames = [];
 
+  for(const n of names) {
+   newNames.push((n[0].toUpperCase() + n.slice(1)));
+  }
+  console.log(newNames.join(' '));
+}
+capitalName('jessica ann smith davis')
+capitalName('jonas schmedtmann')
+capitalName('dianna clark')
 
+//======= Padding A String Method ==========
+// It means adding a number of characters to a string, until... 
+// ...the string has it's desired length.
+
+const message = 'Go to gate 23';
+console.log(message.padStart(20, '*').padEnd(30, '+'));
+console.log('Schmedtmann'.padStart(20, '+').padEnd(30, '^'));
+
+// Example 
+
+const maskedCreditCard = function(number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*')
+}
+
+console.log(maskedCreditCard(2398445));
+console.log(maskedCreditCard(30520898644085));
+console.log(maskedCreditCard('0598934-7643835759495245'));
+
+//==== Repeat Method ======
+const message2 = 'Bad weather... All Departures Delayed... '
+console.log(message2.repeat(7));
+
+const planesInLine = function(n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+}
+
+planesInLine(3);
+planesInLine(5);
+planesInLine(12);
 //////////////////////////////////////////////////////
 //=================== WORKING WITH STRINGS = Part 2 ===============
 const airline = 'TAP Air Portugal';
