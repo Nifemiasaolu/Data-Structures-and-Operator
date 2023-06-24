@@ -96,7 +96,7 @@ const message = 'Go to gate 23';
 console.log(message.padStart(20, '*').padEnd(30, '+'));
 console.log('Schmedtmann'.padStart(20, '+').padEnd(30, '^'));
 
-// Example /
+// Example 
 
 const maskedCreditCard = function(number) {
   const str = number + '';
