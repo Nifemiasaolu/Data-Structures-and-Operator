@@ -1,11 +1,13 @@
 'use strict';
 
 // Data needed for a later exercise
-// const flights =
-// '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+const flights =
+  `_Delayed_Departure;fao93766109;txl2133758440;11:25
+  +_Arrival;bru0943384722;fao93766109;11:45
+  +_Delayed_Arrival;hel7439299980;fao93766109;12:05
+  +_Departure;fao93766109;lis2323639855;12:30`;
 
 // Data needed for first part of the sections
-
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
@@ -58,103 +60,103 @@ const restaurant = {
 };
 
 //=================== WORKING WITH STRINGS = Part 3 ===============
-// Other String Methods 
+// Other String Methods
 
 //============== Split Method ============
-console.log(('a+very+nice+string').split('+')); // ['a', 'very', 'nice', 'string']
+// console.log(('a+very+nice+string').split('+')); // ['a', 'very', 'nice', 'string']
 
-//  Converts Strings into Arrays 
-console.log('Jonas Schmedtmann'.split(' ')); //['Jonas', 'Schmedtmann']
+//  Converts Strings into Arrays
+// console.log('Jonas Schmedtmann'.split(' ')); //['Jonas', 'Schmedtmann']
 
-// Destructure Strings into Arrays 
+// Destructure Strings into Arrays
 const [firstName, lastName] = 'Jonas Schmedtmann'.split(' '); //Jonas Schmedtmann
 
 //============ Join Method ==============
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// console.log(newName);
 
 // Exercise
-const capitalName = function(name) {
-  const names = name.split(' ')
+const capitalName = function (name) {
+  const names = name.split(' ');
   // console.log(names);
   const newNames = [];
 
-  for(const n of names) {
-   newNames.push((n[0].toUpperCase() + n.slice(1)));
+  for (const n of names) {
+    newNames.push(n[0].toUpperCase() + n.slice(1));
   }
-  console.log(newNames.join(' '));
-}
-capitalName('jessica ann smith davis')
-capitalName('jonas schmedtmann')
-capitalName('dianna clark')
+  // console.log(newNames.join(' '));
+};
+capitalName('jessica ann smith davis');
+capitalName('jonas schmedtmann');
+capitalName('dianna clark');
 
 //======= Padding A String Method ==========
-// It means adding a number of characters to a string, until... 
+// It means adding a number of characters to a string, until...
 // ...the string has it's desired length.
 
 const message = 'Go to gate 23';
-console.log(message.padStart(20, '*').padEnd(30, '+'));
-console.log('Schmedtmann'.padStart(20, '+').padEnd(30, '^'));
+// console.log(message.padStart(20, '*').padEnd(30, '+'));
+// console.log('Schmedtmann'.padStart(20, '+').padEnd(30, '^'));
 
-// Example 
+// Example
 
-const maskedCreditCard = function(number) {
+const maskedCreditCard = function (number) {
   const str = number + '';
   const last = str.slice(-4);
-  return last.padStart(str.length, '*')
-}
-
-console.log(maskedCreditCard(2398445));
-console.log(maskedCreditCard(30520898644085));
-console.log(maskedCreditCard('0598934-7643835759495245'));
+  return last.padStart(str.length, '*');
+};
+// console.log(maskedCreditCard(2398445));
+// console.log(maskedCreditCard(30520898644085));
+// console.log(maskedCreditCard('0598934-7643835759495245'));
 
 //==== Repeat Method ======
-const message2 = 'Bad weather... All Departures Delayed... '
-console.log(message2.repeat(7));
+const message2 = 'Bad weather... All Departures Delayed... ';
+// console.log(message2.repeat(7));
 
-const planesInLine = function(n) {
-  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
-}
-
+const planesInLine = function (n) {
+  // console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
 planesInLine(3);
 planesInLine(5);
 planesInLine(12);
+
 //////////////////////////////////////////////////////
 //=================== WORKING WITH STRINGS = Part 2 ===============
 const airline = 'TAP Air Portugal';
 // console.log(airline.toLowerCase());
 // console.log(airline.toUpperCase());
 
-// Fix Capitalisation in Name 
+// Fix Capitalisation in Name
 
-const passenger = 'jOnAs sChmeDg' // Jonas
+const passenger = 'jOnAs sChmeDg'; // Jonas
 const passengerLower = passenger.toLowerCase();
 // console.log(passengerLower);
 
-const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
 // console.log(passengerCorrect);
 
-// Comparing email 
+// Comparing email
 
 const email = 'hello@gmail.io';
 const loginEmail = ' HeLLo@gmail.IO \n';
 
-
 const lowerEmail = loginEmail.toLowerCase();
 const trimmedEmail = lowerEmail.trim();
 // console.log(trimmedEmail);
-// 
+//
 const normalizedEmail = loginEmail.toLowerCase().trim();
 // console.log(normalizedEmail);
 
 // console.log(email === normalizedEmail);
 
 // Replacing
-const priceGB = '288,97&'
+const priceGB = '288,97&';
 const priceUS = priceGB.replace('&', '$').replace(',', '.');
 // console.log(priceUS);
 
-const announcement = 'All passengers come to boarding door 23. Boarding door 23'
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23';
 
 // console.log(announcement.replace('door', 'gate'));
 
@@ -167,25 +169,24 @@ const plane = 'Airbus A320';
 // console.log(plane.includes('B737'));
 // console.log(plane.startsWith('Air'));
 
-if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
   // console.log(`Part of the new Airbus Family`);
 }
 
 // Practice Exercise
-const checkBaggage = function(item) {
+const checkBaggage = function (item) {
   const baggage = item.toLowerCase();
 
-  if(baggage.includes('knife') || baggage.includes('gun')) {
+  if (baggage.includes('knife') || baggage.includes('gun')) {
     // console.log(`You are NOT allowed on board`);
   } else {
     // console.log(`Welcome aboard!`);
   }
-}
+};
 
 checkBaggage(`I have a laptop, some Food and a pocket knife`);
 checkBaggage(`Socks and camera`);
 checkBaggage('Got some snacks and a gun for protection');
-
 
 //////////////////////////////////////////////////
 //=================== WORKING WITH STRINGS = Part 1 ===============
@@ -198,7 +199,7 @@ checkBaggage('Got some snacks and a gun for protection');
 // console.log(airline.length);
 // console.log('A320'.length);
 
-// Some String Methods 
+// Some String Methods
 
 // console.log(airline.indexOf('r'));
 // console.log(airline.indexOf('i'));
@@ -214,11 +215,11 @@ checkBaggage('Got some snacks and a gun for protection');
 // console.log(airline.slice(-2));
 // console.log(airline.slice(2,-3));
 
-// Example 
+// Example
 // const checkMiddleSeat = function(seat) {
-  //B and E are the middle seat
+//B and E are the middle seat
 
-  // const s = seat.slice(-1);
+// const s = seat.slice(-1);
 
 //   if (s === "B" || s === "E") console.log('You got the middle seat');
 //   else console.log('You got Lucky!');
@@ -229,7 +230,6 @@ checkBaggage('Got some snacks and a gun for protection');
 // checkMiddleSeat('244re');
 // checkMiddleSeat('7565B');
 // checkMiddleSeat('582E');
-
 
 ///////////////////////////////////////////////////
 // ================ MAPS =====================
@@ -255,7 +255,7 @@ const time = 2;
 rest.delete(2);
 // console.log(rest);
 
-// Pushing an array into a map 
+// Pushing an array into a map
 const arr = [1, 2];
 rest.set(arr, 'Test');
 
@@ -297,25 +297,23 @@ const answer = 3;
 
 // console.log(question.get(question.get('correct') === answer));
 
-
 //======= Convert map to array =======
 // console.log([...question]); //Automatically means 'question.entries()
 // console.log([...question.keys()]);
 // console.log([...question.values()]);
 
-// Convert array to Set 
+// Convert array to Set
 // const newSets = [...new Set(question)]
 
-// Convert Object to Map 
+// Convert Object to Map
 //  const hourMap1 = new Map(Object.entries(openingHours));
 
-// Convert array to map 
+// Convert array to map
 //  const newMap = new Map(...variable.entries());
 
-//  Convert array to Object 
-//  Convert Set to array 
-//  Convert Map to object 
-
+//  Convert array to Object
+//  Convert Set to array
+//  Convert Map to object
 
 ///////////////////////////////////////////////////
 //=================== SETS ===================
