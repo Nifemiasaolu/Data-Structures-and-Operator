@@ -136,3 +136,32 @@ for(const [i, value] of gameEvents) {
 }
 
 // Code Challenge 3
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+// underscore_case
+//  first_name
+// Some_Variable
+//   calculate_AGE
+// delayed_departure
+
+document.querySelector('button').addEventListener('click', ()=> {
+  const text = document.querySelector('textarea').value;
+  const rows = text.toLowerCase().split('\n')
+  // console.log(rows);
+  for(const [i, row] of rows.entries()) {
+    const [first, second] = row.trim().split('_')
+    // console.log(first, second);
+    const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+    // console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+    // console.log(output);
+    
+  }
+})
+
+// Data needed for Exercise
+const flights =
+  `_Delayed_Departure;fao93766109;txl2133758440;11:25
+  +_Arrival;bru0943384722;fao93766109;11:45
+  +_Delayed_Arrival;hel7439299980;fao93766109;12:05
+  +_Departure;fao93766109;lis2323639855;12:30`;
